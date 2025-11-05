@@ -1,0 +1,11 @@
+MODEL_B Configuration
+==================================================
+Architecture: BiLSTM
+Vocabulary Size: 7953
+Max Sequence Length: 100
+Embedding Dimension: 128
+
+Performance Metrics:
+Test Accuracy: 0.3940
+F1 Weighted: 0.3935
+F1 Macro: 0.3910

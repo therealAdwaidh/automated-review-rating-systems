@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>AI Review Rating Predictor</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background: #f2f2f2;
+            text-align: center;
+            padding: 50px;
+        }
+        h1 {
+            color: #333;
+        }
+        form {
+            background: white;
+            display: inline-block;
+            padding: 20px 40px;
+            border-radius: 12px;
+            box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+        }
+        textarea {
+            width: 100%;
+            height: 120px;
+            padding: 10px;
+            font-size: 16px;
+            border-radius: 8px;
+            border: 1px solid #ccc;
+            margin-bottom: 20px;
+            resize: none;
+        }
+        button {
+            background-color: #007bff;
+            border: none;
+            color: white;
+            padding: 12px 20px;
+            font-size: 16px;
+            border-radius: 8px;
+            cursor: pointer;
+        }
+        button:hover {
+            background-color: #0056b3;
+        }
+        .result-box {
+            display: flex;
+            justify-content: space-around;
+            margin-top: 40px;
+        }
+        .model-card {
+            background: #fff;
+            padding: 20px;
+            border-radius: 12px;
+            width: 40%;
+            box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+        }
+        .rating {
+            font-size: 24px;
+            font-weight: bold;
+        }
+        .confidence {
+            color: gray;
+        }
+    </style>
+</head>
+<body>
+
+    <h1>⭐ AI Review Rating Predictor</h1>
+    <form method="POST">
+        <textarea name="review" placeholder="Type your product review here...">{{ review if review else '' }}</textarea>
+        <br>
+        <button type="submit">Predict Rating</button>
+    </form>
+
+    {% if result %}
+    <div class="result-box">
+        <div class="model-card">
+            <h3>Model A (LSTM)</h3>
+            <div class="rating">{{ rating_a }} ⭐</div>
+            <div class="confidence">Confidence: {{ conf_a }}%</div>
+        </div>
+
+        <div class="model-card">
+            <h3>Model B (BiLSTM)</h3>
+            <div class="rating">{{ rating_b }} ⭐</div>
+            <div class="confidence">Confidence: {{ conf_b }}%</div>
+        </div>
+    </div>
+    {% endif %}
+
+</body>
+</html>
